@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"os"
+	"strings"
 	"testing"
 )
 
@@ -46,7 +47,8 @@ func part1() int {
 }
 
 func part2() int {
-	numbers := [9]string{"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"}
+	numbers := [9]string{"1", "2", "3", "4", "5", "6", "7", "8", "9"}
+	numberNames := [9]string{"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"}
 	file, _ := os.Open("day1.txt")
 	scanner := bufio.NewScanner(file)
 	total := 0
@@ -63,10 +65,16 @@ func part2() int {
 			str[0] = line[i : i+5]
 			str[1] = line[j-5 : j]
 
-			// usar algo d'aixo
-			// strings.Contains(line[i:i+5], numbers[0])
-			// strings.Contains(line[j-5:j], numbers[0])
-			// strings.Index()
+			for n, name := range numberNames {
+				sdx := strings.Index(str[0], name)
+				idx := strings.Index(str[0], numbers[n])
+
+				if sdx < idx {
+
+				}
+
+			}
+
 		}
 	}
 	return total
